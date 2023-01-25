@@ -4,11 +4,19 @@ metadata:
   name: "lifecycle-project"
 spec:
   stages:
-    - name: "dev"
-      sequences:
-        - name: "delivery"
-          tasks:
-            - name: "deployment"
-            - name: "test"
-            - name: "evaluation"
-            - name: "release"
+  - name: "dev"
+    sequences:
+    - name: delivery
+      tasks:
+      - name: deployment
+        properties:
+          deploymentstrategy: direct
+      - name: test
+        properties:
+          teststrategy: performance
+      - name: evaluation
+      - name: approval
+        properties:
+          pass: automatic
+          warning: automatic
+      - name: release
