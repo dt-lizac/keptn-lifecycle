@@ -5,7 +5,6 @@ metadata:
 spec:
   webhooks:
     - type: sh.keptn.event.test.triggered
-      sendFinished: true
       requests:
         - url: https://neoload-api.saas.neotys.com/v3/workspaces/5e3abde2e860a13ca619/tests/f61787dd-da45-44f0-9e0d-a76b4a0371e/start?testResultName=Demo-Test-Result&testResultDescription=stage-{{.data.stage}}
           payload: ""
